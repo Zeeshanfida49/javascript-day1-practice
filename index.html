@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="JavaScript Day 1 tasks: introduction, shop bill calculator, and converters."
+  >
+  <title>Day 1 JavaScript Tasks | Zeeshan Fida</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <p class="eyebrow">TECH SG STUDIO · WEEK 2</p>
+      <h1>JavaScript Practice Lab</h1>
+      <p>Day 1 tasks by Zeeshan Fida</p>
+
+      <nav aria-label="Task navigation">
+        <a href="#introduction">Introduction</a>
+        <a href="#shop">Shop Bill</a>
+        <a href="#utilities">Utilities</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Task 1: Personal information and data types -->
+    <section class="card" id="introduction">
+      <div class="section-heading">
+        <span class="task-number">01</span>
+        <div>
+          <h2>Introduce Yourself</h2>
+          <p>Enter your information and check its JavaScript data types.</p>
+        </div>
+      </div>
+
+      <form id="intro-form">
+        <div class="form-grid">
+          <label for="full-name">
+            Full Name
+            <input
+              id="full-name"
+              type="text"
+              value="Zeeshan Fida"
+              maxlength="80"
+              required
+            >
+          </label>
+
+          <label for="age">
+            Age
+            <input id="age" type="number" min="1" max="120" required>
+          </label>
+
+          <label for="city">
+            City
+            <input id="city" type="text" maxlength="80" required>
+          </label>
+
+          <label for="skill">
+            Skill
+            <input id="skill" type="text" value="HTML" maxlength="80" required>
+          </label>
+
+          <label for="student">
+            Are you a student?
+            <select id="student">
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </select>
+          </label>
+        </div>
+
+        <button type="submit">Show Introduction</button>
+      </form>
+
+      <div id="intro-result" class="result" aria-live="polite" hidden>
+        <p id="intro-text"></p>
+        <h3>Variable Data Types</h3>
+        <dl id="type-list" class="summary"></dl>
+      </div>
+    </section>
+
+    <!-- Task 2: Three-item bill with discount and GST -->
+    <section class="card" id="shop">
+      <div class="section-heading">
+        <span class="task-number">02</span>
+        <div>
+          <h2>Shop Bill Calculator</h2>
+          <p>Calculate a bill with a 5% discount and 17% GST.</p>
+        </div>
+      </div>
+
+      <p class="note">GST is calculated on the amount after discount.</p>
+
+      <form id="bill-form">
+        <div class="items">
+          <fieldset>
+            <legend>Notebook</legend>
+
+            <label for="notebook-price">
+              Unit Price (PKR)
+              <input
+                id="notebook-price"
+                type="number"
+                min="0"
+                step="0.01"
+                value="100"
+                required
+              >
+            </label>
+
+            <label for="notebook-quantity">
+              Quantity
+              <input
+                id="notebook-quantity"
+                type="number"
+                min="0"
+                step="1"
+                value="2"
+                required
+              >
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Pen</legend>
+
+            <label for="pen-price">
+              Unit Price (PKR)
+              <input
+                id="pen-price"
+                type="number"
+                min="0"
+                step="0.01"
+                value="50"
+                required
+              >
+            </label>
+
+            <label for="pen-quantity">
+              Quantity
+              <input
+                id="pen-quantity"
+                type="number"
+                min="0"
+                step="1"
+                value="3"
+                required
+              >
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Bag</legend>
+
+            <label for="bag-price">
+              Unit Price (PKR)
+              <input
+                id="bag-price"
+                type="number"
+                min="0"
+                step="0.01"
+                value="650"
+                required
+              >
+            </label>
+
+            <label for="bag-quantity">
+              Quantity
+              <input
+                id="bag-quantity"
+                type="number"
+                min="0"
+                step="1"
+                value="1"
+                required
+              >
+            </label>
+          </fieldset>
+        </div>
+
+        <button type="submit">Calculate Bill</button>
+      </form>
+
+      <div id="bill-result" class="result" aria-live="polite" hidden>
+        <h3>Customer Bill</h3>
+
+        <div class="table-wrapper">
+          <table>
+            <caption>Purchased items</caption>
+            <thead>
+              <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Unit Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody id="bill-items"></tbody>
+          </table>
+        </div>
+
+        <dl id="bill-summary" class="summary"></dl>
+      </div>
+    </section>
+
+    <!-- Task 3: Temperature, email, and number utilities -->
+    <section class="card" id="utilities">
+      <div class="section-heading">
+        <span class="task-number">03</span>
+        <div>
+          <h2>Converters & String Utilities</h2>
+          <p>Practice calculations, string methods, and number conversion.</p>
+        </div>
+      </div>
+
+      <div class="utilities-grid">
+        <article class="utility">
+          <h3>Temperature Converter</h3>
+
+          <form id="temperature-form">
+            <label for="celsius">
+              Temperature in Celsius
+              <input
+                id="celsius"
+                type="number"
+                step="any"
+                value="30"
+                required
+              >
+            </label>
+
+            <button type="submit">Convert to Fahrenheit</button>
+          </form>
+
+          <p id="temperature-result" class="output" aria-live="polite"></p>
+        </article>
+
+        <article class="utility">
+          <h3>Email String Utilities</h3>
+
+          <form id="email-form">
+            <label for="email-input">
+              Email Text
+              <input
+                id="email-input"
+                type="text"
+                value=" Zeeshan@Example.COM "
+                required
+              >
+            </label>
+
+            <button type="submit">Clean & Check Email</button>
+          </form>
+
+          <p class="note">
+            These are basic string checks, not complete email validation.
+          </p>
+
+          <div id="email-result" class="output" aria-live="polite"></div>
+        </article>
+
+        <article class="utility">
+          <h3>Number Square <span class="badge">Bonus</span></h3>
+
+          <form id="square-form">
+            <label for="square-input">
+              Enter a Number
+              <input
+                id="square-input"
+                type="number"
+                step="any"
+                value="5"
+                required
+              >
+            </label>
+
+            <button type="submit">Calculate Square</button>
+          </form>
+
+          <p id="square-result" class="output" aria-live="polite"></p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Zeeshan Fida · JavaScript Day 1 Assignment</p>
+    <p>Built with HTML, CSS, and JavaScript.</p>
+  </footer>
+</body>
+</html>
